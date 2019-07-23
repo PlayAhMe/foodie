@@ -6,15 +6,20 @@
 <h3> What are you feeling today </h3>
 
   <body>
+    <form method="post" action="/filters" >
+
     <label><input type="checkbox" name="cusine" value="Chinese">Chinese</label>
     <label><input type="checkbox" name="cusine" value="Mexican">Mexican</label>
     <label><input type="checkbox" name="cusine" value="Italian">Italian</label>
     <label><input type="checkbox" name="cusine" value="American">American</label>
+
+    <h3> Enter your location </h3>
+
+    <input type="text" name="user_address" placeholder="1234 example st" > </input>
+    <br>
+    <button id="Filters_next_button" type="button"> Next </button>
+
+    </form>
   </body>
 
-<h3> Enter your location </h3>
-
-<input type="text" name="user_address" placeholder="1234 example st" > </input>
-<br>
-<button id="Filters_next_button" type="button"> Next </button>
 </html>
