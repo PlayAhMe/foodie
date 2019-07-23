@@ -42,12 +42,6 @@ class RestaurantsNearby(webapp2.RequestHandler):
             "rating": rating,
         }
 
-<<<<<<< HEAD
-=======
-        restaurants_nearby_template = jinja_env.get_template('restaurants_nearby/restaurants_nearby.html')
-        self.response.write(restaurants_nearby_template.render())
-
->>>>>>> b50482afd8a952c5e33ee08b20b67c2e2e0d0f6d
 class Summary(webapp2.RequestHandler):
     def get(self):
         summary_template = jinja_env.get_template('summary.html')
