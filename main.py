@@ -10,6 +10,7 @@ class Filters(webapp2.RequestHandler):
 
 class RestaurantsNearby(webapp2.RequestHandler):
     def get(self):
+        userCusine = self.request.get("top-line")
         restaurants_nearby_template = jinja_env.get_template('restaurants_nearby.html')
 
 class Summary(webapp2.RequestHandler):
@@ -29,3 +30,4 @@ app = webapp2.WSGIApplication(
         ('/restaurant', Restaurant),
     ],
     debug = True
+)
