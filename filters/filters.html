@@ -1,10 +1,26 @@
 <html>
-  <head>
-    <title>Filters</title>
-  </head>
 
-<h3> What are you feeling today </h3>
+<head>
+  <title>Filters</title>
+</head>
 
+<<<<<<< HEAD
+<body>
+
+  <h3> What are you feeling today </h3>
+  <form method="post" action="/restaurants_nearby">
+    <label><input type="checkbox" name="cuisine" value="Chinese">Chinese</label>
+    <label><input type="checkbox" name="cuisine" value="Mexican">Mexican</label>
+    <label><input type="checkbox" name="cuisine" value="Italian">Italian</label>
+    <label><input type="checkbox" name="cuisine" value="American">American</label>
+    <h3> Enter your location </h3>
+    <input type="text" name="user_address" placeholder="1234 example st"> </input>
+    <br>
+    <input type="submit" value="Enter" />
+  </form>
+</body>
+
+=======
   <body>
     <form method="post" action="/restaurants_nearby" >
       <label><input type="checkbox" name="cuisine" value="Chinese">Chinese</label>
@@ -29,4 +45,5 @@
     }
 </script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGnMTSopj_ZzyiNWEEM_pdb6tBCHYxEc8&libraries=places&callback=logPlaceDetails"></script>
+>>>>>>> 35813100234cdf7cf2694c81c059b5016e5be25d
 </html>
