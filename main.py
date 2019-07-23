@@ -26,7 +26,6 @@ class RestaurantsNearby(webapp2.RequestHandler):
         #print response
         latitude = self.request.get("lat")
 
-    def get(self):
         restaurants_nearby_template = jinja_env.get_template('restaurants_nearby/restaurants_nearby.html')
         self.response.write(restaurants_nearby_template.render())
 
