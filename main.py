@@ -1,15 +1,24 @@
 import webapp2
+import jinja2
+import os
+
+
+jinja_env = jinja2.Environment(
+    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
+    extensions=['jinja2.ext.autoescape'],
+    autoescape=True)
 
 class Home(webapp2.RequestHandler):
     def get(self):
-        home_template = jinja_env.get_template('home.html')
-
+        home_template = jinja_env.get_template('home/home.html')
+        self.response.write(home_template.render())
 class Filters(webapp2.RequestHandler):
     def get(self):
-        filters_template = jinja_env.get_template('filters.html')
-
+        filters_template = jinja_env.get_template('filters/filters.html')
+        self.response.write(filters_template.render())
 class RestaurantsNearby(webapp2.RequestHandler):
     def get(self):
+
         restaurants_nearby_template = jinja_env.get_template('restaurants_nearby.html')
 
 class Summary(webapp2.RequestHandler):
@@ -29,3 +38,4 @@ app = webapp2.WSGIApplication(
         ('/restaurant', Restaurant),
     ],
     debug = True
+)
