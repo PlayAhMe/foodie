@@ -25,7 +25,20 @@ class RestaurantsNearby(webapp2.RequestHandler):
         response = urlfetch.fetch(api_url).content
         #print response
         latitude = self.request.get("lat")
-        
+        longitude = self.request.get("lng")
+        name = self.request.get("name")
+        icon = self.request.get("icon")
+        photos = self.request.get("photos")
+        rating = self.request.get("rating")
+        data_dict = {
+            "latitude": latitude,
+            "longitude": longitude,
+            "name": name,
+            "icon": icon,
+            "photos": photos,
+            "rating": rating,
+        }
+
     def get(self):
         restaurants_nearby_template = jinja_env.get_template('restaurants_nearby.html')
         self.response.write(restaurants_nearby_template.render())
