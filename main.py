@@ -1,4 +1,3 @@
-
 import webapp2
 import jinja2
 import os
@@ -20,6 +19,10 @@ class Filters(webapp2.RequestHandler):
         filters_template = jinja_env.get_template('filters/filters.html')
         self.response.write(filters_template.render())
 class RestaurantsNearby(webapp2.RequestHandler):
+    def get(self):
+        restaurants_nearby_template = jinja_env.get_template('restaurants_nearby/restaurants_nearby.html')
+        self.response.write(restaurants_nearby_template.render())
+
     def post(self):
         api_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=5&type=restaurant&keyword=Mexican&key=AIzaSyDGnMTSopj_ZzyiNWEEM_pdb6tBCHYxEc8"
         response = urlfetch.fetch(api_url).content
@@ -38,10 +41,6 @@ class RestaurantsNearby(webapp2.RequestHandler):
             "photos": photos,
             "rating": rating,
         }
-
-    def get(self):
-        restaurants_nearby_template = jinja_env.get_template('restaurants_nearby/restaurants_nearby.html')
-        self.response.write(restaurants_nearby_template.render())
 
 class Summary(webapp2.RequestHandler):
     def get(self):
