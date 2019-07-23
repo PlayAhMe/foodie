@@ -1,3 +1,4 @@
+
 import webapp2
 import jinja2
 import os
@@ -17,8 +18,8 @@ class Filters(webapp2.RequestHandler):
         filters_template = jinja_env.get_template('filters/filters.html')
         self.response.write(filters_template.render())
 class RestaurantsNearby(webapp2.RequestHandler):
-    def get(self):
-        restaurants_nearby_template = jinja_env.get_template('restaurants_nearby.html')
+    def post(self):
+        restaurants_nearby_template = jinja_env.get_template('restaurants_nearby/restaurants_nearby.html')
         self.response.write(restaurants_nearby_template.render())
 
 class Summary(webapp2.RequestHandler):
