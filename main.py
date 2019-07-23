@@ -1,6 +1,8 @@
 import webapp2
 import jinja2
 import os
+from google.appengine.api import urlfetch
+import json
 
 
 jinja_env = jinja2.Environment(
@@ -17,6 +19,10 @@ class Filters(webapp2.RequestHandler):
         filters_template = jinja_env.get_template('filters/filters.html')
         self.response.write(filters_template.render())
 class RestaurantsNearby(webapp2.RequestHandler):
+    def post(self):
+        api_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=5&type=restaurant&keyword=Mexican&key=AIzaSyDGnMTSopj_ZzyiNWEEM_pdb6tBCHYxEc8"
+        response = urlfetch.fetch(api_url).content
+        print response
     def get(self):
         restaurants_nearby_template = jinja_env.get_template('restaurants_nearby.html')
         self.response.write(restaurants_nearby_template.render())

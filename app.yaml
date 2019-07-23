@@ -9,8 +9,8 @@ handlers: #might need to be modified
 # - url: /css
 #   static_dir: css
 #
-# - url: /js
-#   static_dir: js
+- url: /js
+  static_dir: js
 
 - url: /.* #regex
   script: main.app

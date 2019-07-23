@@ -17,5 +17,16 @@
       <input type="submit" value="submit"/>
     </form>
   </body>
-
+  <!-- <script src="js/script.js"></script> -->
+  <script type="text/javascript">
+    function logPlaceDetails() {
+      var service = new google.maps.places.PlacesService(document.getElementById('map'));
+      service.getDetails({
+        placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4'
+      }, function (place, status) {
+        console.log('Place details:', place);
+      });
+    }
+</script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGnMTSopj_ZzyiNWEEM_pdb6tBCHYxEc8&libraries=places&callback=logPlaceDetails"></script>
 </html>
