@@ -6,6 +6,8 @@
   <body>
 
     <h3>These are the restaurants near you </h3>
-      {{name}}
+      {% for name in restaurant_names %}
+        {{name}} <br> <br>
+      {% endfor %}
   </body>
 </html>
