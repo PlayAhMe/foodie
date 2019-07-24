@@ -4,13 +4,6 @@ import os
 from google.appengine.api import urlfetch
 import json
 
-        # restaurants = []
-        # for restaurant in rest_response_json['results'][0:10]:
-        #     restaurants.append(restaurant["name"])
-        # rest_dict = {
-        #     "restaurant_names" : restaurants
-        # }
-
 jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
