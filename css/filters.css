@@ -1,7 +1,43 @@
-body {
+/*  #AllCenter leaves space in the left and right and allings it at the center   */
+#AllCenter{
+  border-radius: 20px;
+  margin-left: 20%;
+  margin-right: 20%;
   background-color: rgb(106, 235, 235);
+  box-shadow: 5px 10px 20px #888888;
+  margin-top: 10px;
+}
+h3{
+  font-size: 20px;
 }
 
+/* new code or added code for cuisines should start here */
+/* .leftSpace adds space to the left inside everything in the dix */
+.leftSpace{
+  margin-left: 10px;
+}
+#cuisines{
+  font-size: 20px;
+}
+/* makes space in between everything */
 .cuisines{
-  margin-left: 50px;
+  margin-left: 10px;
+}
+/* cuisines END HERE */
+
+
+/* new code or added code for address should start here */
+#rightAddress{
+  margin-right: 70%;
+}
+.address{
+  width: 100%;
+  border-radius: 20px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: none;
+  background-color: rgb(62, 189, 189);
+  color: white;
+  font-size:18px;
+  /*background-color: 62, 189, 189;*/
 }
