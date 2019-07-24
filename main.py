@@ -13,20 +13,33 @@ class Home(webapp2.RequestHandler):
     def get(self):
         home_template = jinja_env.get_template('home/home.html')
         self.response.write(home_template.render())
+
 class Filters(webapp2.RequestHandler):
     def get(self):
         filters_template = jinja_env.get_template('filters/filters.html')
         self.response.write(filters_template.render())
+
 class RestaurantsNearby(webapp2.RequestHandler):
     def post(self):
         userAddress = self.request.get("user_address")
+        userAddress = userAddress.replace(" ", "+")
+
+        url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + userAddress + '&key=AIzaSyDGnMTSopj_ZzyiNWEEM_pdb6tBCHYxEc8'
+        #url = 'https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDGnMTSopj_ZzyiNWEEM_pdb6tBCHYxEc8'
+
+        location_response = urlfetch.fetch(url).content
+        location_response_json = json.loads(location_response)
+
+        latitude = location_response_json['results'][0]['geometry']['location']['lat']
+        longitude = location_response_json['results'][0]['geometry']['location']['lng']
+
         #cuisines = self.request.params.getall('cuisine')
         cuisine = self.request.get('cuisine')
         cuisine = cuisine.lower()
         user_miles = self.request.get("miles")
         miles = str(int(user_miles)*1609.34)
 
-        api_url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=42.339500,-83.056160&radius=' + miles + '&type=restaurant&keyword=' + str(cuisine) + '&key=AIzaSyDGnMTSopj_ZzyiNWEEM_pdb6tBCHYxEc8'
+        api_url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + str(latitude) + ',' + str(longitude) + '&radius=' + miles + '&type=restaurant&keyword=' + str(cuisine) + '&key=AIzaSyDGnMTSopj_ZzyiNWEEM_pdb6tBCHYxEc8'
         #print api_url
         rest_response = urlfetch.fetch(api_url).content
         rest_response_json = json.loads(rest_response)
@@ -40,6 +53,7 @@ class RestaurantsNearby(webapp2.RequestHandler):
 
         restaurants_nearby_template = jinja_env.get_template('restaurants_nearby/restaurants_nearby.html')
         self.response.write(restaurants_nearby_template.render(rest_dict))
+
 class Summary(webapp2.RequestHandler):
     def get(self):
         summary_template = jinja_env.get_template('summary.html')
