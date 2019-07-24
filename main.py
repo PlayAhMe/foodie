@@ -3,6 +3,7 @@ import jinja2
 import os
 from google.appengine.api import urlfetch
 import json
+# import re
 
 
 jinja_env = jinja2.Environment(
@@ -46,6 +47,10 @@ class Summary(webapp2.RequestHandler):
 class Restaurant(webapp2.RequestHandler):
     def get(self):
         restaurant_template = jinja_env.get_template('restaurant.html')
+
+    # def changespacesintopluses:
+    #     text = 'Team Foodie Rocks'
+    #     print(re.sub("[ ]", "+", text))
 
 app = webapp2.WSGIApplication(
     [
