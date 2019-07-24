@@ -4,6 +4,21 @@ import os
 from google.appengine.api import urlfetch
 import json
 
+class Location(webapp2.RequestHandler):
+    def post(self):
+        url = 'https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDGnMTSopj_ZzyiNWEEM_pdb6tBCHYxEc8'
+
+        loction_response = urlfetch.fetch(api_url).content
+        location_response_json = json.loads(rest_response)
+        print location_response_json
+
+        # restaurants = []
+        # for restaurant in rest_response_json['results'][0:10]:
+        #     restaurants.append(restaurant["name"])
+        # rest_dict = {
+        #     "restaurant_names" : restaurants
+        # }
+
 jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
