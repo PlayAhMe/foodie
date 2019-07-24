@@ -30,8 +30,6 @@ class RestaurantsNearby(webapp2.RequestHandler):
         api_url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='+ userAddress +'&radius=5&type=restaurant&keyword=' + str(cuisines) + '&key=AIzaSyDGnMTSopj_ZzyiNWEEM_pdb6tBCHYxEc8'
         response = urlfetch.fetch(api_url).content
         #print response
-        latitude = self.request.get("location")
-        name = self.request.get("name")
         icon = self.request.get("icon")
         photos = self.request.get("photos")
         rating = self.request.get("rating")
