@@ -6,9 +6,9 @@ threadsafe: true
 # * = repeated between 0 and infinity times
 
 handlers: #might need to be modified
-# - url: /css
-#   static_dir: css
-#
+- url: /css
+  static_dir: css
+
 - url: /js
   static_dir: js
 
