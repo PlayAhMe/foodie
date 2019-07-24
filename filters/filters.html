@@ -9,10 +9,12 @@
 
   <h3> What are you feeling today </h3>
   <form method="post" action="/restaurants_nearby">
-    <label><input type="radio" name="cuisine" value="Chinese">Chinese</label>
-    <label><input type="radio" name="cuisine" value="Mexican">Mexican</label>
-    <label><input type="radio" name="cuisine" value="Italian">Italian</label>
-    <label><input type="radio" name="cuisine" value="American">American</label>
+    <div class="cuisines">
+      <label><input type="radio" name="cuisine" value="Chinese">Chinese</label>
+      <label><input type="radio" name="cuisine" value="Mexican">Mexican</label>
+      <label><input type="radio" name="cuisine" value="Italian">Italian</label>
+      <label><input type="radio" name="cuisine" value="American">American</label>
+    </div>
     <h3> Enter your location </h3>
     <input type="text" name="user_address" placeholder="1234 example st"> </input>
     <br>
