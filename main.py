@@ -21,30 +21,24 @@ class Filters(webapp2.RequestHandler):
 class RestaurantsNearby(webapp2.RequestHandler):
     def post(self):
         userAddress = self.request.get("user_address")
-        cuisines = self.request.params.getall('cuisine')
+        #cuisines = self.request.params.getall('cuisine')
+        cuisine = self.request.get('cuisine')
+        print "cuisine" + cuisine
 
-        one_dict = {
-            "address" : userAddress
-        }
+        api_url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=42.339500,-83.056160&radius=10000&type=restaurant&keyword=mexican&key=AIzaSyDGnMTSopj_ZzyiNWEEM_pdb6tBCHYxEc8'
+        rest_response = urlfetch.fetch(api_url).content
+        rest_response_json = json.loads(rest_response)
 
-        api_url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='+ userAddress +'&radius=5&type=restaurant&keyword=' + str(cuisines) + '&key=AIzaSyDGnMTSopj_ZzyiNWEEM_pdb6tBCHYxEc8'
-        response = urlfetch.fetch(api_url).content
-        #print response
-        latitude = self.request.get("location")
-        name = self.request.get("name")
-        icon = self.request.get("icon")
-        photos = self.request.get("photos")
-        rating = self.request.get("rating")
-        restaurant_dict = {
-            "latitude": latitude,
-            "Restaurantname": name,
-            "icon": icon,
-            "photos": photos,
-            "rating": rating,
+        restaurants = []
+        for restaurant in rest_response_json['results'][0:10]:
+            restaurants.append(restaurant["name"])
+        rest_dict = {
+            "restaurant" : restaurant
         }
+        print "rest_dict" + str(rest_dict)
 
         restaurants_nearby_template = jinja_env.get_template('restaurants_nearby/restaurants_nearby.html')
-        self.response.write(restaurants_nearby_template.render(one_dict))
+        self.response.write(restaurants_nearby_template.render())
 class Summary(webapp2.RequestHandler):
     def get(self):
         summary_template = jinja_env.get_template('summary.html')
