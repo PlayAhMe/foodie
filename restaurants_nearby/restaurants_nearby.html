@@ -4,10 +4,14 @@
     <title>Restaurants Nearby</title>
   </head>
   <body>
-
     <h3>These are the restaurants near you </h3>
-      {% for name in restaurant_names %}
-        {{name}} <br> <br>
-      {% endfor %}
+    {% for restaurant_name in restaurant_names %}
+      {{restaurant_name}}
+      <br>
+      <img height="100px" width="100px" src="{{photo_keys[loop.index0]}}">
+      <br>
+      {{rating_keys[loop.index0]}}
+      <br><br><br>
+    {% endfor %}
   </body>
 </html>

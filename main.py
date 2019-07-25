@@ -43,16 +43,25 @@ class RestaurantsNearby(webapp2.RequestHandler):
         #print api_url
         rest_response = urlfetch.fetch(api_url).content
         rest_response_json = json.loads(rest_response)
+        #print rest_response_json
 
         restaurants = []
+        ratings = []
+        photos = []
         for restaurant in rest_response_json['results'][0:10]:
-            restaurants.append(restaurant["name"])
-        rest_dict = {
-            "restaurant_names" : restaurants
+            restaurants.append(restaurant['name'])
+            ratings.append(restaurant['rating'])
+            photo_url = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=' + str(restaurant['photos'][0]['photo_reference']) + '&key=AIzaSyDGnMTSopj_ZzyiNWEEM_pdb6tBCHYxEc8'
+            photos.append(photo_url)
+
+        dict = {
+            "restaurant_names" : restaurants,
+            "rating_keys" : ratings,
+            "photo_keys" : photos
         }
 
         restaurants_nearby_template = jinja_env.get_template('restaurants_nearby/restaurants_nearby.html')
-        self.response.write(restaurants_nearby_template.render(rest_dict))
+        self.response.write(restaurants_nearby_template.render(dict))
 
 class Summary(webapp2.RequestHandler):
     def get(self):
