@@ -1,14 +1,16 @@
 /*  #AllCenter leaves space in the left and right and allings it at the center   */
 #AllCenter{
   border-radius: 20px;
-  margin-left: 20%;
-  margin-right: 20%;
-  background-color: rgb(106, 235, 235);
-  box-shadow: 5px 10px 20px #888888;
+  margin-left: 0%;
+  margin-right: 0%;
+  background-color: #00ff33;
+  box-shadow: 5px 10px 20px #fffb00;
   margin-top: 10px;
 }
+
 h3{
-  font-size: 20px;
+  font-size: 45px;
+  font-family: 'Lobster', cursive;
 }
 
 /* new code or added code for cuisines should start here */
@@ -17,20 +19,18 @@ h3{
   margin-left: 10px;
 }
 #cuisines{
-  font-size: 20px;
+  font-size: 25px;
+  font-family: 'Lobster', cursive;
 }
 /* makes space in between everything */
-.cuisines{
-  margin-left: 10px;
-}
 /* cuisines END HERE */
 
 
 /* new code or added code for address should start here */
 #rightAddress{
   margin-right: 70%;
+  font-family: 'Lobster', cursive;
 }
-
 
 .address{
   width: 100%;
@@ -41,11 +41,33 @@ h3{
   background-color: rgb(62, 189, 189);
   color: white;
   font-size:18px;
+  font-family: 'Lobster', cursive;
   /*background-color: 62, 189, 189;*/
 }
 
+.miles{
+  font-family: 'Lobster', cursive;
+  font-size: 20px;
+}
+input[type=text] {
+    padding:5px;
+    border:2px solid #ccc;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
 
+input[type=text]:focus {
+    border-color:#333;
+}
 
+input[type=submit] {
+    padding:5px 15px;
+    background:#ccc;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
 
 /* infinity slider */
 
