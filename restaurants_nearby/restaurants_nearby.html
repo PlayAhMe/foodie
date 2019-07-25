@@ -5,13 +5,18 @@
   </head>
   <body>
     <h3>These are the restaurants near you </h3>
-    {% for restaurant_name in restaurant_names %}
-      {{restaurant_name}}
-      <br>
-      <img height="100px" width="100px" src="{{photo_keys[loop.index0]}}">
-      <br>
-      {{rating_keys[loop.index0]}}
-      <br><br><br>
-    {% endfor %}
+    <form method="post" action="/restaurant">
+      {% for restaurant_name in restaurant_names %}
+        {{restaurant_name}}
+        <br>
+        <img height="300px" width="300px" src="{{photo_keys[loop.index0]}}">
+        <br>
+        {{rating_keys[loop.index0]}}
+        <br><br>
+        <input type="radio" name="user_choice" value={{restaurant_name}}/>
+        <br><br><br>
+        {% endfor %}
+        <input type="submit" value="Get Details!"/>
+      </form>
   </body>
 </html>

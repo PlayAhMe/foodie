@@ -64,8 +64,8 @@ class RestaurantsNearby(webapp2.RequestHandler):
         self.response.write(restaurants_nearby_template.render(dict))
 
 class Restaurant(webapp2.RequestHandler):
-    def get(self):
-        restaurant_template = jinja_env.get_template('restaurant.html')
+    def post(self):
+        restaurant_template = jinja_env.get_template('restaurant/restaurant.html')
 
 
 app = webapp2.WSGIApplication(
