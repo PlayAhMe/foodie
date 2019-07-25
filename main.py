@@ -63,14 +63,10 @@ class RestaurantsNearby(webapp2.RequestHandler):
         restaurants_nearby_template = jinja_env.get_template('restaurants_nearby/restaurants_nearby.html')
         self.response.write(restaurants_nearby_template.render(dict))
 
-
 class Restaurant(webapp2.RequestHandler):
-    def get(self):
-        restaurant_template = jinja_env.get_template('restaurant.html')
+    def post(self):
+        restaurant_template = jinja_env.get_template('restaurant/restaurant.html')
 
-    # def changespacesintopluses:
-    #     text = 'Team Foodie Rocks'
-    #     print(re.sub("[ ]", "+", text))
 
 app = webapp2.WSGIApplication(
     [
