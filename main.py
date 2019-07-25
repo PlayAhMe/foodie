@@ -40,7 +40,7 @@ class RestaurantsNearby(webapp2.RequestHandler):
         miles = str(int(user_miles)*1609.34)
 
         api_url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + str(latitude) + ',' + str(longitude) + '&radius=' + miles + '&type=restaurant&keyword=' + str(cuisine) + '&key=AIzaSyDGnMTSopj_ZzyiNWEEM_pdb6tBCHYxEc8'
-        #print api_url
+
         rest_response = urlfetch.fetch(api_url).content
         rest_response_json = json.loads(rest_response)
         #print rest_response_json
@@ -63,9 +63,6 @@ class RestaurantsNearby(webapp2.RequestHandler):
         restaurants_nearby_template = jinja_env.get_template('restaurants_nearby/restaurants_nearby.html')
         self.response.write(restaurants_nearby_template.render(dict))
 
-class Summary(webapp2.RequestHandler):
-    def get(self):
-        summary_template = jinja_env.get_template('summary.html')
 
 class Restaurant(webapp2.RequestHandler):
     def get(self):
@@ -80,7 +77,6 @@ app = webapp2.WSGIApplication(
         ('/', Home),
         ('/filters', Filters),
         ('/restaurants_nearby', RestaurantsNearby),
-        ('/summary', Summary),
         ('/restaurant', Restaurant),
     ],
     debug = True
