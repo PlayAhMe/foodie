@@ -37,24 +37,24 @@
 <div class="header"> -->
 <body>
   <h3>These are the restaurants near you </h3>
-<div class="wrapper">
   <form method="post" action="/restaurant">
 
+    <div id="first">
     {% for id in rest_id %}
       <br>
       {{restaurant_names[loop.index0]}}
       <br>
-      <img id="two" height="300px" width="300px" src="{{photo_keys[loop.index0]}}">
+      <img id="two" height="100px" width="100px" src="{{photo_keys[loop.index0]}}">
       <br>
       {{rating_keys[loop.index0]}}
       <br><br>
       <input type="radio" name="user_choice" value={{id}}/>
       <br><br><br>
       {% endfor %}
+      </div>
     <input type="submit" value="Get Details!"/>
-  </div>
   </form>
-</div>
+
 
 
 
