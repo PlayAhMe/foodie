@@ -1,3 +1,29 @@
+<<<<<<< HEAD
+.row{
+  content: "";
+  clear: both;
+  display: table;
+=======
+body {
+  /* padding: 0; */
+  margin: 0;
+  /* background: #f2f6e9; */
+}
+
+#first{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+}
+
+#two{
+  flex:0 0 auto;
+>>>>>>> 8327662991997907ecb8e9adce2208189be229ea
+}
+
 .row{
   content: "";
   clear: both;

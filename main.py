@@ -47,7 +47,6 @@ class RestaurantsNearby(webapp2.RequestHandler):
         userAddress = userAddress.replace(" ", "+")
 
         url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + userAddress + '&key=AIzaSyDGnMTSopj_ZzyiNWEEM_pdb6tBCHYxEc8'
-        #url = 'https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDGnMTSopj_ZzyiNWEEM_pdb6tBCHYxEc8'
 
         location_response = urlfetch.fetch(url).content
         location_response_json = json.loads(location_response)
@@ -79,11 +78,6 @@ class RestaurantsNearby(webapp2.RequestHandler):
             missing_photos_counter = 0
             if 'photos' in restaurant.keys():
                 photo_url = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=' + str(restaurant['photos'][0]['photo_reference']) + '&key=AIzaSyDGnMTSopj_ZzyiNWEEM_pdb6tBCHYxEc8'
-                pics.append(photo_url)
-            else:
-                missing_photos_counter=missing_photos_counter+1
-        print "******************"
-        print "missing_photos_counter" + str(missing_photos_counter)
 
         dict = {
             "rest_id" : id,

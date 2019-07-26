@@ -71,7 +71,7 @@ body {
 
 .address{
   color: black;
-  width: 100%;
+  width: 600px;
   border-radius: 20px;
   padding: 12px 20px;
   box-sizing: border-box;
@@ -82,4 +82,18 @@ body {
 }
 .select{
   font-size: 20px;
+}
+
+.blue{
+  background-color: rgb(35, 63, 247, 0.7);
+  height: 300px;
+  width: 700px;
+  border-radius: 20px;
+}
+.blue2{
+  padding-top: 15px;
+  background-color: rgb(35, 63, 247, 0.7);
+  height: 70px;
+  width: 700px;
+  border-radius: 20px;
 }

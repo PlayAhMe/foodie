@@ -74,3 +74,10 @@ body {
   background:#fff;
   color:#000;
 }
+
+.blue{
+  background-color: rgb(35, 63, 247, 0.7);
+  height: 300px;
+  width: 700px;
+  border-radius: 20px;
+}
