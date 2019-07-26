@@ -75,8 +75,6 @@
 }
 
 /* Clearfix (clear floats) */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
+.row{
+  flex-direction: row;
 }
