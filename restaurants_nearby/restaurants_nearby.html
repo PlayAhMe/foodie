@@ -39,9 +39,10 @@
 <div class="header"> -->
 <body>
   <h3>These are the restaurants near you </h3>
-
+<div class="wrapper">
   <form method="post" action="/restaurant">
-    <div id="one">
+    <div id="box">
+      <div>
     {% for id in rest_id %}
       <br>
       {{restaurant_names[loop.index0]}}
@@ -53,10 +54,12 @@
       <input type="radio" name="user_choice" value={{id}}/>
       <br><br><br>
       {% endfor %}
+
       </div>
-      <input type="submit" value="Get Details!"/>
-      <!-- </div> -->
     </div>
+  </div>
+      <input type="submit" value="Get Details!"/>
+    <!-- </div> -->
   </form>
 
 <!-- </div>
