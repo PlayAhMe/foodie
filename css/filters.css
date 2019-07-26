@@ -3,6 +3,7 @@
   background-size: cover;
   background-position: center;
   position: relative;
+  background-attachment: fixed;
 }
 
 body {
@@ -55,60 +56,18 @@ body {
   font-size: 1.3rem;
   line-height: 1.5;
 }
-/* .description button {
-  border:1px solid #6ab446;
-  border-radius: 20px;
-  background:#6ab446;
-  border-radius: 0;
-  color:#fff;
-} */
+
 .enter{
   font-size: 25px;
   border-radius: 8px;
   background-color: #f2f6e9;
-  color: black; 
+  color: black;
 }
 
-
-
-
-
-
-
-
-
-
-
-/*  #AllCenter leaves space in the left and right and allings it at the center   */
- /* .AllCenter{
-  border-radius: 20px;
-  margin-left: 0%;
-  margin-right: 0%;
-  background-color: #00ff33;
-  box-shadow: 5px 10px 20px #fffb00;
-  margin-top: 20px;
-}
-
-h3{
-  font-size: 45px;
-  font-family: 'Lobster', cursive;
-} */
-
-/* new code or added code for cuisines should start here */
-/* .leftSpace adds space to the left inside everything in the dix */
-/* .leftSpace{
-  margin-left: 10px;
-}*/
 .cuisines{
   font-size: 25px;
   margin-left: 50px;
 }
-/*
-/* makes space in between everything */
-/* cuisines END HERE */
-
-
-/* new code or added code for address should start here */
 
 .address{
   color: black;
@@ -121,172 +80,6 @@ h3{
   color: black;
   font-size:18px;
 }
-  /*font-family: 'Lobster', cursive;
-  background-color: 6 2, 189, 189;*
-
-*/
 .select{
   font-size: 20px;
 }
-/*
-input[type=text] {
-    padding:5px;
-    border:2px solid #ccc;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-}
-
-input[type=text]:focus {
-    border-color:#333;
-}
-
-input[type=submit] {
-    padding:5px 15px;
-    background:#ccc;
-    border:0 none;
-    cursor:pointer;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-}*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-.wrapper {
-  width:500px;
-	height: 530px;
-	overflow: hidden;
-  opacity: 0.5;
-}
-
-a {
-	color: #121212;
-	text-decoration: none;
-	font-size: 80px;
-}
-
-.ticker-list li {
-	line-height: 230px;
-}
-
-.ticker-list {
-	width: 600px;
-	padding: 0px;
-	list-style: none;
-
-	-webkit-animation: pooja 10s ease-in-out infinite;
-	-moz-animation: pooja 10s ease-in-out infinite;
-	-ms-animation: pooja 10s ease-in-out infinite;
-	-o-animation: pooja 10s ease-in-out infinite;
-	animation: pooja 10s ease-in-out infinite;
-}
-
-@keyframes "pooja" {
- 0% {
-    margin-top: 0;
- }
- 25% {
-    margin-top: -180px;
- }
- 50% {
-    margin-top: -340px;
- }
- 75% {
-    margin-top: -510px;
- }
- 100% {
-    margin-top: 0;
- }
-
-}
-
-@-moz-keyframes pooja {
- 0% {
-   margin-top: 0;
- }
- 25% {
-   margin-top: -180px;
- }
- 50% {
-   margin-top: -340px;
- }
- 75% {
-   margin-top: -510px;
- }
- 100% {
-   margin-top: 0;
- }
-
-}
-
-@-webkit-keyframes "pooja" {
- 0% {
-   margin-top: 0;
- }
- 25% {
-   margin-top: -180px;
- }
- 50% {
-   margin-top: -340px;
- }
- 75% {
-   margin-top: -510px;
- }
- 100% {
-   margin-top: 0;
- }
-
-}
-
-@-ms-keyframes "pooja" {
-	0%  {
-	 margin-top: 0;
-}
- 25% {
-   margin-top: -180px;
- }
- 50% {
-   margin-top: -340px;
- }
- 75% {
-   margin-top: -510px;
- }
- 100% {
-   margin-top: 0;
- }
-
-}
-
- @-o-keyframes "pooja" {
-	0%  {
-	 margin-top: 0;
-}
- 25% {
-    margin-top: -180px;
- }
- 50% {
-    margin-top: -340px;
- }
- 75% {
-    margin-top: -510px;
- }
- 100% {
-    margin-top: 0;
- } */
