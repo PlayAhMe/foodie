@@ -4,19 +4,6 @@ body {
   /* background: #f2f6e9; */
 }
 
-#first{
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-around;
-  flex-wrap: wrap;
-
-}
-
-#two{
-  flex:0 0 auto;
-}
-
 #my_form{
   display: flex;
   flex-wrap: wrap;
@@ -28,7 +15,7 @@ body {
   display: flex;
 }
 .child {
-  flex: 1 0 21%;
+  flex: 1 21%;
   height: 150px;
   margin:50px;
 }

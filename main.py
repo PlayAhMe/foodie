@@ -53,7 +53,7 @@ class RestaurantsNearby(webapp2.RequestHandler):
         ratings = []
         pics = []
         id = []
-        for restaurant in rest_response_json['results'][0:10]:
+        for restaurant in rest_response_json['results'][0:9]:
             id.append(restaurant['place_id'])
             restaurants.append(restaurant['name'])
             ratings.append(restaurant['rating'])
@@ -61,10 +61,6 @@ class RestaurantsNearby(webapp2.RequestHandler):
             if 'photos' in restaurant.keys():
                 photo_url = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=' + str(restaurant['photos'][0]['photo_reference']) + '&key=AIzaSyDGnMTSopj_ZzyiNWEEM_pdb6tBCHYxEc8'
                 pics.append(photo_url)
-            else:
-                missing_photos_counter=missing_photos_counter+1
-        print "******************"
-        print "missing_photos_counter" + str(missing_photos_counter)
 
         dict = {
             "rest_id" : id,

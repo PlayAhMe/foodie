@@ -14,8 +14,9 @@
   <h1>These are the restaurants near you </h1>
   <p>Select which one looks the best to you!</p>
 </div>
+
 <div class="parent">
-  <form id ="my_form" method="post" action="/restaurant">
+  <form id="my_form" method="post" action="/restaurant">
 
       {% for id in rest_id %}
           <div class="child">
@@ -25,10 +26,12 @@
             <input type="radio" name="user_choice" value={{id}}/>
           </div>
       {% endfor %}
-        <input type="submit" value="Get Details!"/>
+
 
 
     </form>
 </div>
+<br><br><br>
+<input type="submit" value="Get Details!"/>
 </body>
 </html>
