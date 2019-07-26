@@ -1,5 +1,93 @@
 <!DOCTYPE html>
 <html>
+<title>Restaurants Nearby</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
+.w3-bar-block .w3-bar-item {padding:20px}
+</style>
+<body>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+
+  <!-- First Photo Grid-->
+  <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+    <form method="post" action="/restaurant">
+        {% for id in rest_id %}
+          <div class="w3-quarter">
+          <img src="{{photo_keys[loop.index0]}}" alt="Sandwich" style="width:100%">
+          <h3>{{restaurant_names[loop.index0]}}</h3>
+          <p>Rating: {{rating_keys[loop.index0]}}/10</p>
+          <input type="radio" name="user_choice" value={{id}}/>
+        {% endfor %}
+        <input type="submit" value="Get Details!"/>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!-- <html lang="en">
+<head>
+  <title>Restaurants Nearby</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+  <h1>These are the restaurants near you </h1>
+  <p>Select which one looks the best to you!</p>
+</div>
+
+<div class="container">
+  <form method="post" action="/restaurant">
+    <div class="row">
+      {% for id in rest_id %}
+          <div class="col-sm">
+          <h3>{{restaurant_names[loop.index0]}}</h3>
+          <img id="two" height="100px" width="100px" src="{{photo_keys[loop.index0]}}">
+          <p>{{rating_keys[loop.index0]}}</p>
+          <input type="radio" name="user_choice" value={{id}}/>
+      {% endfor %}
+        <input type="submit" value="Get Details!"/>
+      </div>
+    </form>
+</div>
+
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
 
 <head>
   <title>Restaurants Nearby</title>
@@ -35,25 +123,6 @@
     <div class="overlay">
       <div class="description">
 <div class="header"> -->
-<body>
-  <h3>These are the restaurants near you </h3>
-  <form method="post" action="/restaurant">
-
-    <div id="first">
-    {% for id in rest_id %}
-      <br>
-      {{restaurant_names[loop.index0]}}
-      <br>
-      <img id="two" height="100px" width="100px" src="{{photo_keys[loop.index0]}}">
-      <br>
-      {{rating_keys[loop.index0]}}
-      <br><br>
-      <input type="radio" name="user_choice" value={{id}}/>
-      <br><br><br>
-      {% endfor %}
-      </div>
-    <input type="submit" value="Get Details!"/>
-  </form>
 
 
 
@@ -62,11 +131,3 @@
 </div>
 </div>
   </header> -->
-
-
-
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-</body>

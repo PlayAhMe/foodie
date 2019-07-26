@@ -1,3 +1,22 @@
+# body {
+#   /* padding: 0; */
+#   margin: 0;
+#   /* background: #f2f6e9; */
+# }
+#
+# #first{
+#   display: flex;
+#   flex-direction: row;
+#   align-items: flex-start;
+#   justify-content: space-around;
+#   flex-wrap: wrap;
+#
+# }
+#
+# #two{
+#   flex:0 0 auto;
+# }
+
 import webapp2
 import jinja2
 import os
@@ -53,7 +72,7 @@ class RestaurantsNearby(webapp2.RequestHandler):
         ratings = []
         pics = []
         id = []
-        for restaurant in rest_response_json['results'][0:10]:
+        for restaurant in rest_response_json['results'][0:9]:
             id.append(restaurant['place_id'])
             restaurants.append(restaurant['name'])
             ratings.append(restaurant['rating'])
