@@ -10,7 +10,6 @@
 </head>
 
 
-
   <!-- <nav class="navbar navbar-expand-md">
     <a id="size" class="navbar-brand" href="#">Foodie</a>
     <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
@@ -32,7 +31,6 @@
 
 
 
-
   <!-- <header class="page-header header container-fluid">
     <div class="overlay">
       <div class="description">
@@ -41,8 +39,7 @@
   <h3>These are the restaurants near you </h3>
 <div class="wrapper">
   <form method="post" action="/restaurant">
-    <div id="box">
-      <div>
+
     {% for id in rest_id %}
       <br>
       {{restaurant_names[loop.index0]}}
@@ -54,13 +51,12 @@
       <input type="radio" name="user_choice" value={{id}}/>
       <br><br><br>
       {% endfor %}
-
-      </div>
-    </div>
+    <input type="submit" value="Get Details!"/>
   </div>
-      <input type="submit" value="Get Details!"/>
-    <!-- </div> -->
   </form>
+</div>
+
+
 
 <!-- </div>
 </div>
