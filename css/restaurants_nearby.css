@@ -46,7 +46,6 @@
   position: relative;
   background-attachment: fixed;
 }
-
 .description h1  {
   color: #6ab446;
   align-items: center;
@@ -64,7 +63,7 @@
   background: rgba(0, 0, 0, 0.6);
 } */
 
-* {
+/* * {
   box-sizing: border-box;
 }
 
@@ -75,8 +74,6 @@
 }
 
 /* Clearfix (clear floats) */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
+.row{
+  flex-direction: row;
+} */
