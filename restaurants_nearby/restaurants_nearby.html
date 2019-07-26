@@ -37,7 +37,9 @@
 <div class="header"> -->
 <body>
   <h3>These are the restaurants near you </h3>
+  <div class="row">
   <form method="post" action="/restaurant">
+    <div class="container">
     {% for id in rest_id %}
       {{restaurant_names[loop.index0]}}
       <br>
@@ -49,7 +51,17 @@
       <br><br><br>
       {% endfor %}
       <input type="submit" value="Get Details!"/>
-</form>
+    </div>
+    </form>
+  </div>
+
+
+<!-- </div>
+</div>
+</div>
+  </header> -->
+
+
 
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
