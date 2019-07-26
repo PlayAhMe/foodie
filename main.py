@@ -4,6 +4,8 @@ import os
 from google.appengine.api import urlfetch
 import json
 
+userId = ""
+
 jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
@@ -21,6 +23,7 @@ class Filters(webapp2.RequestHandler):
 
 class RestaurantsNearby(webapp2.RequestHandler):
     def post(self):
+        global userId
         userAddress = self.request.get("user_address")
         userAddress = userAddress.replace(" ", "+")
 
@@ -29,6 +32,7 @@ class RestaurantsNearby(webapp2.RequestHandler):
 
         location_response = urlfetch.fetch(url).content
         location_response_json = json.loads(location_response)
+        userId = location_response_json['results'][0]['place_id'] #home id
 
         latitude = location_response_json['results'][0]['geometry']['location']['lat']
         longitude = location_response_json['results'][0]['geometry']['location']['lng']
@@ -53,8 +57,14 @@ class RestaurantsNearby(webapp2.RequestHandler):
             id.append(restaurant['place_id'])
             restaurants.append(restaurant['name'])
             ratings.append(restaurant['rating'])
-            photo_url = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=' + str(restaurant['photos'][0]['photo_reference']) + '&key=AIzaSyDGnMTSopj_ZzyiNWEEM_pdb6tBCHYxEc8'
-            pics.append(photo_url)
+            missing_photos_counter = 0
+            if 'photos' in restaurant.keys():
+                photo_url = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=' + str(restaurant['photos'][0]['photo_reference']) + '&key=AIzaSyDGnMTSopj_ZzyiNWEEM_pdb6tBCHYxEc8'
+                pics.append(photo_url)
+            else:
+                missing_photos_counter=missing_photos_counter+1
+        print "******************"
+        print "missing_photos_counter" + str(missing_photos_counter)
 
         dict = {
             "rest_id" : id,
@@ -68,23 +78,28 @@ class RestaurantsNearby(webapp2.RequestHandler):
 
 class Restaurant(webapp2.RequestHandler):
     def post(self):
+        global userId
         user_choice = self.request.get("user_choice")
-        user_choice = user_choice.replace("/", "")
+        user_choice = user_choice.replace("/", "") #restaurant id
 
-        print "*************************"
-        print "user_choice: " + str(user_choice)
         restaurant_url = 'https://maps.googleapis.com/maps/api/place/details/json?placeid='+str(user_choice)+'&key=AIzaSyDGnMTSopj_ZzyiNWEEM_pdb6tBCHYxEc8'
 
         user_response = urlfetch.fetch(restaurant_url).content
         user_response_json = json.loads(user_response)
-        print "*************************"
-        print "user_response_json: " + str(user_response_json)
 
         restaurant_name = user_response_json['result']['name']
 
         name_dict = {
+            "origin" : user_choice,
+            "destination" : userId,
             "name" : restaurant_name
         }
+
+        directions_url = 'https://maps.googleapis.com/maps/api/directions/json?origin=place_id:'+str(userId)+'&destination=place_id:'+str(user_choice)+'&key=AIzaSyDGnMTSopj_ZzyiNWEEM_pdb6tBCHYxEc8'
+
+        directions_response = urlfetch.fetch(directions_url).content
+        directions_response_json = json.loads(directions_response)
+        print "directions_response_json" + str(directions_response_json)
 
         result_template = jinja_env.get_template('restaurant/restaurant.html')
         self.response.write(result_template.render(name_dict))
