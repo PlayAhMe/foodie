@@ -63,7 +63,7 @@
   background: rgba(0, 0, 0, 0.6);
 } */
 
-* {
+/* * {
   box-sizing: border-box;
 }
 
@@ -76,4 +76,4 @@
 /* Clearfix (clear floats) */
 .row{
   flex-direction: row;
-}
+} */
