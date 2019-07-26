@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body>
+
 
   <!-- <nav class="navbar navbar-expand-md">
     <a id="size" class="navbar-brand" href="#">Foodie</a>
@@ -41,11 +41,25 @@
       <div class="description">
 
 <div class="header"> -->
-  <h1>These are the restaurants near you </h1>
+<body>
+  <h3>These are the restaurants near you </h3>
   <form method="post" action="/restaurant">
+<<<<<<< HEAD
+    {% for id in rest_id %}
+      {{restaurant_names[loop.index0]}}
+      <br>
+      <img height="300px" width="300px" src="{{photo_keys[loop.index0]}}">
+      <br>
+      {{rating_keys[loop.index0]}}
+      <br><br>
+      <input type="radio" name="user_choice" value={{id}}/>
+      <br><br><br>
+      {% endfor %}
+      <input type="submit" value="Get Details!"/>
+=======
 
-<!-- <div class="row">
-  <div class="column"> -->
+<div class="row">
+  <div class="column">
     {% for restaurant_name in restaurant_names %}
     {{restaurant_name}}
     <br>
@@ -56,10 +70,11 @@
     <input type="radio" name="user_choice" value={{restaurant_name}} />
     <br><br><br>
     {% endfor %}
-  <!-- </div>
-</div> -->
+  </div>
+</div>
 
     <input type="submit" value="Get Details!" />
+>>>>>>> 34fe83f47977cc59753874c9ba34cb6077e3f7c6
   </form>
 <!-- </div>
 
