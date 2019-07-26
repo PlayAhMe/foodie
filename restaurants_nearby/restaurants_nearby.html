@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/restaurants_nearby.css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
@@ -13,21 +14,21 @@
   <h1>These are the restaurants near you </h1>
   <p>Select which one looks the best to you!</p>
 </div>
+<div class="parent">
+  <form id ="my_form" method="post" action="/restaurant">
 
-<div id ="first" class="container">
-  <form method="post" action="/restaurant">
-    <div class="row">
       {% for id in rest_id %}
-          <div class="col-sm">
-          <h3>{{restaurant_names[loop.index0]}}</h3>
-          <img id="two" height="100px" width="100px" src="{{photo_keys[loop.index0]}}">
-          <p>{{rating_keys[loop.index0]}}</p>
-          <input type="radio" name="user_choice" value={{id}}/>
+          <div class="child">
+            <h3 class="test">{{restaurant_names[loop.index0]}}</h3>
+            <img height="100px" width="100px" src="{{photo_keys[loop.index0]}}">
+            <p>{{rating_keys[loop.index0]}}</p>
+            <input type="radio" name="user_choice" value={{id}}/>
+          </div>
       {% endfor %}
         <input type="submit" value="Get Details!"/>
-      </div>
+
+
     </form>
 </div>
-
 </body>
 </html>

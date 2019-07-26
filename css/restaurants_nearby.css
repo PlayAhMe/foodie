@@ -17,8 +17,21 @@ body {
   flex:0 0 auto;
 }
 
-.row{
+#my_form{
+  display: flex;
+  flex-wrap: wrap;
+}
+.parent{
   content: "";
+  flex-wrap: wrap;
   clear: both;
-  display: table;
+  display: flex;
+}
+.child {
+  flex: 1 0 21%;
+  height: 150px;
+  margin:50px;
+}
+.test{
+  width: 150px;
 }
