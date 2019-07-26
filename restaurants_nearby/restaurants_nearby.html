@@ -44,7 +44,6 @@
 <body>
   <h3>These are the restaurants near you </h3>
   <form method="post" action="/restaurant">
-<<<<<<< HEAD
     {% for id in rest_id %}
       {{restaurant_names[loop.index0]}}
       <br>
@@ -56,25 +55,6 @@
       <br><br><br>
       {% endfor %}
       <input type="submit" value="Get Details!"/>
-=======
-
-<div class="row">
-  <div class="column">
-    {% for restaurant_name in restaurant_names %}
-    {{restaurant_name}}
-    <br>
-    <img height="100px" width="100px" src="{{photo_keys[loop.index0]}}">
-    <br>
-    {{rating_keys[loop.index0]}}
-    <br><br>
-    <input type="radio" name="user_choice" value={{restaurant_name}} />
-    <br><br><br>
-    {% endfor %}
-  </div>
-</div>
-
-    <input type="submit" value="Get Details!" />
->>>>>>> 34fe83f47977cc59753874c9ba34cb6077e3f7c6
   </form>
 <!-- </div>
 
