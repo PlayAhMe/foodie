@@ -40,9 +40,10 @@
 /*                          */
 
 
-/* .header {
+/* .header{
   background-image: url("https://st3.depositphotos.com/1083268/19439/v/1600/depositphotos_194396786-stock-illustration-street-food-festival-menu-vintage.jpg");
   background-size: cover;
+  background-position: center;
   position: relative;
   background-attachment: fixed;
 }
@@ -50,7 +51,7 @@
   color: #6ab446;
   align-items: center;
   display: -webkit-flex;
-} */
+}  */
 
 /*                            */
 
@@ -62,20 +63,3 @@
   top: 0;
   background: rgba(0, 0, 0, 0.6);
 } */
-
-* {
-  box-sizing: border-box;
-}
-
-.column {
-  float: left;
-  width: 33.33%;
-  padding: 5px;
-}
-
-/* Clearfix (clear floats) */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
