@@ -6,14 +6,14 @@
   <body>
     <h3>These are the restaurants near you </h3>
     <form method="post" action="/restaurant">
-      {% for restaurant_name in restaurant_names %}
-        {{restaurant_name}}
+      {% for id in rest_id %}
+        {{restaurant_names[loop.index0]}}
         <br>
         <img height="300px" width="300px" src="{{photo_keys[loop.index0]}}">
         <br>
         {{rating_keys[loop.index0]}}
         <br><br>
-        <input type="radio" name="user_choice" value={{restaurant_name}}/>
+        <input type="radio" name="user_choice" value={{id}}/>
         <br><br><br>
         {% endfor %}
         <input type="submit" value="Get Details!"/>

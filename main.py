@@ -47,17 +47,20 @@ class RestaurantsNearby(webapp2.RequestHandler):
 
         restaurants = []
         ratings = []
-        photos = []
+        pics = []
+        id = []
         for restaurant in rest_response_json['results'][0:10]:
+            id.append(restaurant['place_id'])
             restaurants.append(restaurant['name'])
             ratings.append(restaurant['rating'])
             photo_url = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=' + str(restaurant['photos'][0]['photo_reference']) + '&key=AIzaSyDGnMTSopj_ZzyiNWEEM_pdb6tBCHYxEc8'
-            photos.append(photo_url)
+            pics.append(photo_url)
 
         dict = {
+            "rest_id" : id,
             "restaurant_names" : restaurants,
             "rating_keys" : ratings,
-            "photo_keys" : photos
+            "photo_keys" : pics
         }
 
         restaurants_nearby_template = jinja_env.get_template('restaurants_nearby/restaurants_nearby.html')
@@ -65,7 +68,23 @@ class RestaurantsNearby(webapp2.RequestHandler):
 
 class Restaurant(webapp2.RequestHandler):
     def post(self):
-        restaurant_template = jinja_env.get_template('restaurant/restaurant.html')
+        user_choice = self.request.get("user_choice")
+        user_choice = user_choice.replace("/", "")
+
+
+        restaurant_url = 'https://maps.googleapis.com/maps/api/place/details/json?placeid='+str(user_choice)+'&key=AIzaSyDGnMTSopj_ZzyiNWEEM_pdb6tBCHYxEc8'
+
+        user_response = urlfetch.fetch(restaurant_url).content
+        user_response_json = json.loads(user_response)
+
+        restaurant_name = user_response_json['result']['name']
+
+        name_dict = {
+            "name" : restaurant_name
+        }
+
+        result_template = jinja_env.get_template('restaurant/restaurant.html')
+        self.response.write(result_template.render(name_dict))
 
 
 app = webapp2.WSGIApplication(
