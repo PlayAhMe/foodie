@@ -71,14 +71,10 @@ class Restaurant(webapp2.RequestHandler):
         user_choice = self.request.get("user_choice")
         user_choice = user_choice.replace("/", "")
 
-        print "*************************"
-        print "user_choice: " + str(user_choice)
         restaurant_url = 'https://maps.googleapis.com/maps/api/place/details/json?placeid='+str(user_choice)+'&key=AIzaSyDGnMTSopj_ZzyiNWEEM_pdb6tBCHYxEc8'
 
         user_response = urlfetch.fetch(restaurant_url).content
         user_response_json = json.loads(user_response)
-        print "*************************"
-        print "user_response_json: " + str(user_response_json)
 
         restaurant_name = user_response_json['result']['name']
 
