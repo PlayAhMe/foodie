@@ -99,7 +99,6 @@ class Restaurant(webapp2.RequestHandler):
 
         directions_response = urlfetch.fetch(directions_url).content
         directions_response_json = json.loads(directions_response)
-        print "directions_response_json" + str(directions_response_json)
 
         result_template = jinja_env.get_template('restaurant/restaurant.html')
         self.response.write(result_template.render(name_dict))

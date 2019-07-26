@@ -1,8 +1,9 @@
-/* body {
-  padding: 0;
+body {
+  /* padding: 0; */
   margin: 0;
-  background: #f2f6e9;
+  /* background: #f2f6e9; */
 }
+/*
 /*--- navigation bar ---*/
 /* .navbar {
   background:#6ab446;
@@ -75,28 +76,32 @@
 }
 
 /* Clearfix (clear floats) */
-/* #one{
-  /* display: flex;
+ /* #one{
+  display: flex;
   justify-content: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;
-   *
-   display: grid;
-        grid-template-columns: repeat(auto-fill,minmax(160px, 1fr));
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(160px, 1fr));
 
-}
+}*/
 
-/* #two{
-  flex:0 0 auto;
-} */
-/* .design{
+
+
+/*
+ .design{
   float: left;
-} */
+}
+/*
 
-/* .wrapper {
-      border: 2px dotted rgb(96, 139, 168);
-      width: 500px;
-    }
+ /* .wrapper {
+      /* border: 2px dotted rgb(96, 139, 168);
+      width: 500px; /
+      flex-direction: row;
+      align-items: stretch;
+      display: flex;
+    } */
+    /*
 .box {
   display: flex;
   flex-wrap: wrap;
@@ -110,3 +115,16 @@
 .container {
   flex-direction: row;
 } */
+
+#first{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+}
+
+#two{
+  flex:0 0 auto;
+}
