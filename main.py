@@ -80,7 +80,7 @@ class Restaurant(webapp2.RequestHandler):
         print "*************************"
         print "user_response_json: " + str(user_response_json)
 
-        restaurant_name = user_response_json['results']['name']
+        restaurant_name = user_response_json['result']['name']
 
         name_dict = {
             "name" : restaurant_name
