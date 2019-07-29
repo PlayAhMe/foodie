@@ -59,7 +59,8 @@ body {
 
 .enter{
   font-size: 25px;
-  border-radius: 8px;
+  border-radius: 700px;
+  width: 150px;
   background-color: #f2f6e9;
   color: black;
 }
@@ -90,10 +91,10 @@ body {
   width: 700px;
   border-radius: 20px;
 }
-.blue2{ 
+.blue2{
   padding-top: 15px;
   background-color: rgb(35, 63, 247, 0.7);
   height: 70px;
-  width: 400px;
+  width: 705px;
   border-radius: 20px;
 }
