@@ -45,7 +45,8 @@
           <div class="child">
             <h3 class="test blue">{{restaurant_names[loop.index0]}}</h3>
             <img height="100px" width="100px" src="{{photo_keys[loop.index0]}}">
-            <p class="blueRating" >{{rating_keys[loop.index0]}}</p>
+
+            <p class="blueRating" > Rating: {{rating_keys[loop.index0]}}</p>
             <input type="radio" name="user_choice" value={{id}}/>
           </div>
       {% endfor %}
